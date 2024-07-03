@@ -21,13 +21,11 @@ public class AppConfiguration {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("api/**").permitAll()
-                        .anyRequest().authenticated())
+                        .requestMatchers("api/**").authenticated()
+                        .anyRequest().permitAll())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                 .build();
-
-
     }
 
     @Bean

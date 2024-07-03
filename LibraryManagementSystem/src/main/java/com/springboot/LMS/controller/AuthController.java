@@ -72,7 +72,7 @@ public class AuthController {
         String jwt = JwtProvider.generateToken(authentication);
 
         AuthResponse res = new AuthResponse();
-        res.setMessage("signup successful");
+        res.setMessage("signin successful");
         res.setJwt(jwt);
 
         return new ResponseEntity<>(res, HttpStatus.CREATED);
